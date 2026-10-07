@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cipher Lab - Text Encryption & Decryption</title>
+  <!-- Tailwind CSS (utility styling) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CryptoJS: AES, DES, 3DES, RC4, Rabbit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+  <!-- JSEncrypt: RSA key generation, encryption, decryption -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.3.2/jsencrypt.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen">
+
+  <header class="bg-white border-b border-gray-300 px-6 py-3">
+    <h1 class="text-xl font-semibold">Secure File Upload System made by Team 001, <br>Members:Kalpit , Ayush , Ganesh<br></h1>
+    <p class="text-sm text-gray-600">Text encryption and decryption: classical, modern symmetric and asymmetric ciphers</p>
+  </header>
+
+  <div class="flex flex-col md:flex-row">
+    <!-- Sidebar: built by script.js from the ALGOS registry -->
+    <nav id="sidebar" class="md:w-64 md:min-h-screen bg-white border-r border-gray-300 p-4 text-sm"></nav>
+
+    <main class="flex-1 p-6 max-w-6xl">
+      <h2 id="algoName" class="text-2xl font-semibold"></h2>
+      <p id="algoDesc" class="text-sm text-gray-600 mb-4"></p>
+
+      <!-- Mode toggle (Encrypt/Decrypt, Sign/Verify, ...) -->
+      <div id="modeBar" class="inline-flex mb-4 border border-gray-300 rounded overflow-hidden"></div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        <!-- Left column: input + configuration -->
+        <section class="panel">
+          <div id="inputBox">
+            <div class="flex justify-between items-center mb-1">
+              <label for="input" class="font-medium">Input text</label>
+              <label class="btn-light cursor-pointer">Upload .txt
+                <input type="file" id="upload" accept=".txt,text/plain" class="hidden">
+              </label>
+            </div>
+            <textarea id="input" rows="6" class="field" placeholder="Type or paste text here"></textarea>
+          </div>
+          <h3 class="font-medium mt-4 mb-2">Configuration</h3>
+          <div id="config" class="space-y-3"></div>
+          <div id="actions" class="flex flex-wrap gap-2 mt-3"></div>
+          <button id="run" class="btn mt-4 w-full"></button>
+          <p id="error" class="text-red-600 text-sm mt-2" role="alert"></p>
+        </section>
+
+        <!-- Right column: output -->
+        <section class="panel">
+          <label for="output" class="font-medium block mb-1">Output</label>
+          <textarea id="output" rows="12" readonly class="field bg-gray-50"></textarea>
+          <div class="flex gap-2 mt-3">
+            <button id="copy" class="btn">Copy to clipboard</button>
+            <button id="download" class="btn-light">Download as .txt</button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
