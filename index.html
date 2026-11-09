@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secure File Upload System - Text Encryption & Decryption</title>
+  <!-- Tailwind CSS (utility styling) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CryptoJS: AES, DES, 3DES -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+  <!-- JSEncrypt: RSA key generation, encryption, decryption -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.3.2/jsencrypt.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="text-gray-900 min-h-screen">
+
+  <header class="relative bg-white border-b border-gray-300 px-6 py-5 text-center min-h-40">
+    <img
+    src="images/college-logo.png"
+    alt="College Logo"
+    class="absolute left-6 top-1/2 -translate-y-1/2 w-40 h-36 object-contain"
+     > 
+     
+<div class="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-5">
+
+    <div class="text-center">
+        <img src="images/ayush.jpg"
+             alt="Ayush Purohit"
+             class="w-28 h-28 rounded-full object-contain border-2 border-gray-300 bg-white">
+        <p class="text-sm font-medium mt-1">Ayush</p>
+    </div>
+
+    <div class="text-center">
+        <img src="images/ganesh.jpg"
+             alt="Ganesh Singh Negi"
+             class="w-28 h-28 rounded-full object-contain border-2 border-gray-300 bg-white">
+        <p class="text-sm font-medium mt-1">Ganesh</p>
+    </div>
+
+    <div class="text-center">
+        <img src="images/kalpit.jpg"
+             alt="Kalpit Singh Negi"
+             class="w-28 h-28 rounded-full object-contain border-2 border-gray-300 bg-white">
+        <p class="text-sm font-medium mt-1">Kalpit</p>
+    </div>
+
+</div>
+
+    <h1 class="text-xl font-semibold"><span class="underline text-3xl">Secure File Upload System </span><Br>Team ID :WAS-V-2026-T001 <Br>Team Members : Ayush Purohit, Ganesh Singh Negi , Kalpit Singh Negi <Br></h1>
+    <p class="text-sm text-gray-600">Text encryption and decryption</p>
+  </header>
+
+  <div class="flex flex-col md:flex-row">
+    
+    <nav id="sidebar" class="md:w-64 md:min-h-screen bg-white border-r border-gray-300 p-4 text-sm"></nav>
+
+    <main class="flex-1 p-6 max-w-6xl">
+      <h2 id="algoName" class="text-2xl font-semibold"></h2>
+      <p id="algoDesc" class="text-sm text-gray-600 mb-4"></p>
+
+      
+      <div id="modeBar" class="inline-flex mb-4 border border-gray-300 rounded overflow-hidden"></div>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+        
+        <section class="panel">
+          <div id="inputBox">
+            <div class="flex justify-between items-center mb-1">
+              <label for="input" class="font-medium">Input text</label>
+              <label class="btn-light cursor-pointer">Upload .txt
+                <input type="file" id="upload" accept=".txt,text/plain" class="hidden">
+              </label>
+            </div>
+            <textarea id="input" rows="6" class="field" placeholder="Type or paste text here"></textarea>
+          </div>
+          <h3 class="font-medium mt-4 mb-2">Configuration</h3>
+          <div id="config" class="space-y-3"></div>
+          <div id="actions" class="flex flex-wrap gap-2 mt-3"></div>
+          <button id="run" class="btn mt-4 w-full"></button>
+          <p id="error" class="text-red-600 text-sm mt-2" role="alert"></p>
+        </section>
+
+      
+        <section class="panel">
+          <label for="output" class="font-medium block mb-1">Output</label>
+          <textarea id="output" rows="12" readonly class="field bg-gray-50"></textarea>
+          <div class="flex gap-2 mt-3">
+            <button id="copy" class="btn">Copy to clipboard</button>
+            <button id="download" class="btn-light">Download as .txt</button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
